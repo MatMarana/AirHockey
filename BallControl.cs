@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Puck : MonoBehaviour
 {
-    public float speed = 22f;
+    public float speed = 20f;
 
-    public float limX = 6f;
-    public float limY = 9f;
+    public float limitX = 6f;
+    public float limitY = 9f;
 
     private Rigidbody2D rb2d;
 
@@ -17,13 +17,13 @@ public class Puck : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (rb2d.linearVelocity.magnitude > 0.02f)
+        if (rb2d.linearVelocity.magnitude > 0.01f)
         {
             rb2d.linearVelocity = rb2d.linearVelocity.normalized * speed;
         }
 
-        if (Mathf.Abs(transform.position.x) > limX ||
-            Mathf.Abs(transform.position.y) > limY)
+        if (Mathf.Abs(transform.position.x) > limitX ||
+            Mathf.Abs(transform.position.y) > limitY)
         {
             retorna();
         }
